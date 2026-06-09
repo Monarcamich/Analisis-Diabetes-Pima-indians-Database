@@ -1,0 +1,76 @@
+ANÁLISIS GRÁFICO EXPLORATORIO
+PIMA INDIANS DIABETES DATABASE
+======================================================================
+
+
+1. DISTRIBUCIÓN DE DIABETES (barras_outcome.png)
+   ────────────────────────────────────────────
+   • El dataset contiene un desbalance: 65.1% sin diabetes vs 34.9% con diabetes
+   • Esto es representativo de la población general donde la diabetes es menos 
+     frecuente que la ausencia de la enfermedad
+   • El desbalance debe considerarse en análisis predictivos posteriores
+
+2. DISTRIBUCIÓN DE LA EDAD (histograma_edad.png)
+   ─────────────────────────────────────────────
+   • Edad media: ~33.2 años, con rango de 21 a 81 años
+   • La distribución es ligeramente asimétrica (sesgada a la derecha)
+   • Hay más personas jóvenes que ancianas en el dataset
+   • Es importante notar que la diabetes tipo 2 puede afectar a personas jóvenes
+
+3. DISTRIBUCIÓN DE GLUCOSA (histograma_glucose.png)
+   ────────────────────────────────────────────────
+   • La glucosa tiene una media de ~120.9 mg/dL
+   • Nivel normal en ayunas: < 100 mg/dL
+   • La mayor parte de la población está por encima de lo normal
+   • Muchos valores cero sugieren datos faltantes (no registrados)
+
+4. DISTRIBUCIÓN DEL IMC (histograma_bmi.png)
+   ─────────────────────────────────────────
+   • IMC medio: ~31.9 kg/m² (clasificado como SOBREPESO)
+   • Clasificación OMS: <18.5 (bajo peso), 18.5-24.9 (normal), 25-29.9 (sobrepeso),
+     ≥30 (obesidad)
+   • Mucha población está en riesgo por sobrepeso u obesidad
+   • Existe una relación clara entre IMC y riesgo de diabetes
+
+5. GLUCOSA vs ESTADO DE DIABETES (boxplot_glucose_outcome.png)
+   ──────────────────────────────────────────────────────────
+   • Personas CON diabetes: mediana de glucosa ~155 mg/dL (muy elevada)
+   • Personas SIN diabetes: mediana de glucosa ~99 mg/dL (cercana a normal)
+   • Diferencia clara y significativa entre grupos
+   • La glucosa es un indicador muy importante para el diagnóstico
+
+6. IMC vs ESTADO DE DIABETES (boxplot_bmi_outcome.png)
+   ───────────────────────────────────────────────────
+   • Personas CON diabetes: IMC mediano ~33.3 kg/m² (obesidad)
+   • Personas SIN diabetes: IMC mediano ~30.0 kg/m² (sobrepeso)
+   • Aunque ambos grupos tienen IMC alto, la diferencia es notable
+   • El peso corporal es un factor de riesgo importante
+
+7. RELACIÓN GLUCOSA-IMC (dispersion_bmi_glucose.png)
+   ─────────────────────────────────────────────────
+   • Hay una débil correlación positiva entre glucosa e IMC
+   • Las personas con diabetes tienden a estar en la esquina superior derecha
+     (glucosa alta + IMC alto)
+   • Existe superposición entre grupos, pero hay una separación clara
+   • Ambas variables son predictoras independientes de diabetes
+
+8. MATRIZ DE CORRELACIÓN (mapa_correlacion.png)
+   ────────────────────────────────────────────
+   • Outcome tiene correlaciones positivas FUERTES con:
+     - Glucose: 0.47 (relación moderada-fuerte)
+     - BMI: 0.29 (relación moderada)
+     - Age: 0.24 (relación débil-moderada)
+   • DiabetesPedigreeFunction: 0.17 (historial familiar)
+   • Pregnancies: 0.22 (puede indicar edad reproductiva)
+   • Variables poco correlacionadas con Outcome suelen tener más ceros
+     (sugieren valores faltantes)
+
+CONCLUSIONES PRINCIPALES:
+─────────────────────────
+✓ La glucosa es el predictor más fuerte de diabetes en este dataset
+✓ El IMC elevado es un factor de riesgo importante
+✓ La edad también tiene influencia, aunque más débil
+✓ Hay valores cero que probablemente representan datos faltantes
+✓ La población estudiada tiene alto riesgo metabólico en general
+✓ Intervenciones en estilo de vida (dieta, ejercicio) podrían reducir la incidencia
+  considerando que glucosa e IMC son factores modificables
